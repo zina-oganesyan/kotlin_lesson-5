@@ -43,4 +43,37 @@ class WallServiceTests {
         )
         assertFalse(WallService.update(post))
     }
+
+    @Test
+    fun createComment(){
+        val post = Post(
+            0, 1, 1, 1, 1, "", null, null, true,
+            null, null, Likes(1, true, true, true), null,
+            Views(1), "1", null, true, true, true, true, true,
+            true, Donut(true, 1, Placeholder(""), true, ""), 1,
+            null
+        )
+        val id = WallService.add(post).id
+        val comment = Comment(
+            id = 1,
+            postId = id,
+            text = "Тестовый комментарий"
+        )
+        WallService.createComment(comment)
+        assertEquals(WallService.comments[0].text, "Тестовый комментарий")
+    }
+
+    @Test
+    fun createCommentException() {
+        val comment = Comment(
+            id = 1,
+            postId = 999,
+            text = "Тестовый комментарий"
+        )
+        assertThrows(
+            WallService.PostNotFoundException::class.java
+        ) {
+            WallService.createComment(comment)
+        }
+    }
 }

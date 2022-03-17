@@ -149,3 +149,28 @@ data class AudioMessage(
     val linkOgg: String = "",
     val linkMp3: String = ""
 )
+
+data class Comment(
+    val id: Int,
+    val postId: Int,
+    val fromId: Int = 0,
+    val date: Int = 0,
+    val text: String,
+    val donut: DonutComment = DonutComment(),
+    val replyToUser: Int = 0,
+    val replyToComment: Int = 0,
+    val attachments: Array<Attachment>? = null,
+    val parentsStack: Array<Int>? = null,
+    val thread: Thread = Thread()
+)
+data class Thread(
+    val count: Int = 0,
+    val items: Array<Any>? = null,
+    val can_post: Boolean = true,
+    val show_reply_button: Boolean = true,
+    val groups_can_post: Boolean = true
+)
+data class DonutComment(
+    val is_don: Boolean = false,
+    val placeholder: String = ""
+)
