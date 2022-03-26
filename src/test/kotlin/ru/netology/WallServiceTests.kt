@@ -8,7 +8,7 @@ class WallServiceTests {
     @Test
     fun add() {
         val post = Post(
-            0, 1, 1, 1, 1, "", 1, 1, true,
+            null, 1, 1, 1, 1, "", 1, 1, true,
             Comments(1, true, true, true, true), Copyright(1, "", "", ""),
             Likes(1, true, true, true), Reposts(1, true), Views(1),
             "", 1, true, true, true, true, true, true,
@@ -21,7 +21,7 @@ class WallServiceTests {
     @Test
     fun update() {
         val post = Post(
-            0, 1, 1, 1, 1, "", 1, 1, true,
+            1, 1, 1, 1, 1, "", 1, 1, true,
             Comments(1, true, true, true, true), Copyright(1, "", "", ""),
             Likes(1, true, true, true), Reposts(1, true), Views(1),
             "", 1, true, true, true, true, true, true,

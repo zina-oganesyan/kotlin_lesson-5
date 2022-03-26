@@ -5,9 +5,9 @@ object WallService {
     var id = 0
 
     fun add(post: Post): Post {
-      post.id = id
-      postsList.add(post)
-      return post
+        val newPost = post.copy(id = ++id)
+        postsList.add(newPost)
+        return newPost
     }
 
     fun update(post: Post): Boolean {
